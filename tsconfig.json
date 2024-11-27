@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "noEmit": true,
+    "module": "esnext",
+    "moduleResolution": "node",  // Ensure this is set to 'node'
+    "esModuleInterop": true,     // Enable compatibility with CommonJS
+    "allowSyntheticDefaultImports": true, // Allow default imports for non-ES modules
+    "skipLibCheck": true,        // Skip type checks for `node_modules` (optional)
+    "strict": true,               // Enable strict mode (optional but recommended)
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/lib/placeholder-data.ts",
+    "scripts/seed.js"
+  ],
+  "exclude": ["node_modules"]
+}
