@@ -3,6 +3,7 @@ import { UpdateInvoice, DeleteInvoice } from '@/app/ui/invoices/buttons';
 import InvoiceStatus from '@/app/ui/invoices/status';
 import { formatDateToLocal, formatCurrency } from '@/app/lib/utils';
 import { fetchFilteredInvoices } from '@/app/lib/data';
+import Link from 'next/link';
 
 export default async function InvoicesTable({
   query,
@@ -33,7 +34,11 @@ export default async function InvoicesTable({
                         height={28}
                         alt={`${invoice.name}'s profile picture`}
                       />
-                      <p>{invoice.name}</p>
+                      <p>
+                        <Link href={`/dashboard/customers/${invoice.customer_id}/details`} className="rounded-md border p-2 hover:bg-gray-100">
+                          {invoice.name}
+                        </Link>
+                      </p>
                     </div>
                     <p className="text-sm text-gray-500">{invoice.email}</p>
                   </div>
@@ -92,7 +97,11 @@ export default async function InvoicesTable({
                         height={28}
                         alt={`${invoice.name}'s profile picture`}
                       />
-                      <p>{invoice.name}</p>
+                      <p>
+                        <Link href={`/dashboard/customers/${invoice.customer_id}/details`} className="rounded-md border p-2 hover:bg-gray-100">
+                          {invoice.name}
+                        </Link>
+                      </p>
                     </div>
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
