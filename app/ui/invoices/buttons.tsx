@@ -37,11 +37,13 @@ export function UpdateInvoice({ id }: { id: string }) {
   );
 }
 
-export function UpdateCustomer({ id }: { id: string }) {
+export function UpdateCustomer({ id, className = "" }: { id: string, className?: string }) {
+  const _class = className && className.length > 0 ? className : "rounded-md border p-2 hover:bg-gray-100";
+
   return (
     <Link
     href={`/dashboard/customers/${id}/edit`}
-      className="rounded-md border p-2 hover:bg-gray-100"
+      className={_class}
     >
       <PencilIcon className="w-5" />
     </Link>
@@ -60,11 +62,12 @@ export function DeleteInvoice({ id }: { id: string }) {
   );
 }
 
-export function DeleteCustomer({ id }: { id: string }) {
+export function DeleteCustomer({ id, className = "" }: { id: string, className?: string }) {
+  const _class = className && className.length > 0 ? className : "rounded-md border p-2 hover:bg-gray-100";
   const deleteCustomerWithId = deleteCustomer.bind(null, id);
   return (
     <form action={deleteCustomerWithId}>
-      <button className="rounded-md border p-2 hover:bg-gray-100">
+      <button className={_class}>
         <span className="sr-only">Delete</span>
         <TrashIcon className="w-5" />
       </button>
